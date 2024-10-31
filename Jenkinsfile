@@ -1,17 +1,18 @@
 pipeline {
     agent any
-
+    tools { 
+        maven 'MAVEN_3_6_3' 
+        jdk 'JDK_1_11' 
+    }
     environment {
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21' 
-        PATH = "${env.JAVA_HOME}\\bin:${env.PATH}"
-        FIREBASE_TOKEN = credentials('firebase-token')
+        FIREBASE_TOKEN = credentials('firebase-token') // Asegúrate de que el ID de la credencial sea 'firebase-token'
     }
 
     stages {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Install Node.js dependencies
+                    // Instalar dependencias de Node.js
                     sh 'npm install'
                 }
             }
@@ -20,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Build the Angular project
+                    // Construir el proyecto Angular
                     sh 'npm run build'
                 }
             }
@@ -29,7 +30,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Run tests
+                    // Ejecutar pruebas
                     sh 'npm test'
                 }
             }
@@ -38,7 +39,7 @@ pipeline {
         stage('Package') {
             steps {
                 script {
-                    // Package the build artifacts
+                    // Empaquetar los artefactos de construcción
                     sh 'zip -r dist.zip dist/'
                 }
             }
@@ -47,9 +48,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Deploy to Firebase
-                    sh 'npm install -g firebase-tools' // Install Firebase CLI
-                    sh 'firebase deploy --token $FIREBASE_TOKEN' // Deploy using the Firebase token
+                    // Desplegar en Firebase
+                    sh 'npm install -g firebase-tools' // Instalar Firebase CLI
+                    sh 'firebase deploy --token $1//0hHZlEfzYbDOYCgYIARAAGBESNwF-L9Irk-uk_82ufwmw4qWDM68eOaj219IM_IxAHGE9FVLvsf0yVr5j-AGOR0QtYXbp93r9kZg' 
                 }
             }
         }
