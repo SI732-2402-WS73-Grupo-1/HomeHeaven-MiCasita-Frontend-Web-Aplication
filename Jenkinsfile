@@ -1,18 +1,22 @@
 pipeline {
     agent any
-    tools { 
-        maven 'MAVEN_3_6_3' 
-        jdk 'JDK_1_11' 
+
+    tools {
+        maven 'MAVEN_3_6_3'
+        jdk 'JDK_1_11'
     }
+
     environment {
-        FIREBASE_TOKEN = credentials('firebase-token') // Asegúrate de que el ID de la credencial sea 'firebase-token'
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-11' // Set this to your Java 11 installation path
+        PATH = "${env.JAVA_HOME}\\bin:${env.PATH}"
+        FIREBASE_TOKEN = credentials('firebase-token') // Ensure the credential ID is 'firebase-token'
     }
 
     stages {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Instalar dependencias de Node.js
+                    // Install Node.js dependencies
                     sh 'npm install'
                 }
             }
@@ -21,7 +25,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Construir el proyecto Angular
+                    // Build the Angular project
                     sh 'npm run build'
                 }
             }
@@ -30,7 +34,7 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    // Ejecutar pruebas
+                    // Run tests
                     sh 'npm test'
                 }
             }
@@ -39,7 +43,7 @@ pipeline {
         stage('Package') {
             steps {
                 script {
-                    // Empaquetar los artefactos de construcción
+                    // Package the build artifacts
                     sh 'zip -r dist.zip dist/'
                 }
             }
@@ -48,9 +52,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Desplegar en Firebase
-                    sh 'npm install -g firebase-tools' // Instalar Firebase CLI
-                    sh 'firebase deploy --token $1//0hHZlEfzYbDOYCgYIARAAGBESNwF-L9Irk-uk_82ufwmw4qWDM68eOaj219IM_IxAHGE9FVLvsf0yVr5j-AGOR0QtYXbp93r9kZg' 
+                    // Deploy to Firebase
+                    sh 'npm install -g firebase-tools' // Install Firebase CLI
+                    sh 'firebase deploy --token $FIREBASE_TOKEN' // Deploy using the Firebase token
                 }
             }
         }
