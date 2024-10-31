@@ -13,7 +13,7 @@ export class EstatesService extends BaseService<Estate> {
 
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = '/api/v1/properties'; // replace with your Spring Boot app endpoint
+    this.resourceEndpoint = '/api/v1/estates'; // replace with your Spring Boot app endpoint
   }
 
   getEstates(): Observable<any> {

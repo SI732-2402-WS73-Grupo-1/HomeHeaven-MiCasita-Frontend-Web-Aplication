@@ -159,13 +159,18 @@
       "size": "250 m²",
       "bedrooms": 4,
       "bathrooms": 3,
-      "garageSpace": 2,
-      "image": {
-        "url": "https://example.com/image.jpg",
-        "description": "Front view of the estate"
-      }
+      "garageSpace": 2
+
     }
   ],
+    "propertyImages":[
+      {
+        "id": "1",
+        "propertyId": "1",
+        "estateImg": "https://images.adsttc.com/media/images/5d34/e684/284d/d131/4700/0124/slideshow/Casa_H_ELEVACI%C3%93N_POSTERIOR.jpg?1563747941"
+      }
+    ] ,
+
   "user_payments": [
     {
       "id": "1",
