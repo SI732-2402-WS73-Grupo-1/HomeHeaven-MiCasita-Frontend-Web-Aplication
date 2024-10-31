@@ -1,0 +1,55 @@
+<div class="title-container">
+    <h1 class="main-title">Confirmación de Pago</h1>
+    <div class="white-rectangle"></div>
+</div>
+<div class="form-container">
+    <div class="left-section">
+        <h2 class="payment-method-title">Medio de Pago:</h2>
+        <img src="https://cdn.worldvectorlogo.com/logos/bcp-4.svg" alt="Descripción de la imagen" class="imagen-bcp" (click)="selectPaymentMethod('BCP')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="Descripción de la imagen" class="imagen-paypal" (click)="selectPaymentMethod('PAYPAL')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/BBVA_2019.svg/1200px-BBVA_2019.svg.png" alt="Descripción de la imagen" class="imagen-bbva" (click)="selectPaymentMethod('BBVA')">
+        <img src="https://www.hn.pe/wp-content/uploads/2020/08/pagoefectivo-1.png" alt="Descripción de la imagen" class="imagen-pagoEfectivo" (click)="selectPaymentMethod('Pago Efectivo')">
+        <mat-card>
+            <div class="payment-container">
+                <div class="payment-amount">
+                    <span class="payment-amount-label">Subtotal:</span>
+                    <span class="payment-amount-value">{{ paymentAmount }}</span>
+                </div>
+                <div class="payment-amount">
+                    <span class="payment-amount-label">Total:</span>
+                    <span class="payment-amount-value">{{ paymentAmount }}</span>
+                </div>
+            </div>
+        </mat-card>
+        <p class="terms-text" style="margin-top: 1rem">Al hacer clic en "Pagar", aceptas los términos y condiciones.</p>
+    </div>
+    <div class="right-section">
+        <div class="payment-method-popup">
+            <p class="method-text">Método de Pago: <span class="method-value">{{ selectedPaymentMethod }}</span></p>
+        </div>
+        <form (ngSubmit)="submitForm(registerForm.value)" #registerForm="ngForm">
+            <label class="label-title"><strong>Completa la información:</strong></label>
+            <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+                <label>Nombre</label>
+                <input matInput placeholder="" name="owner_name" [(ngModel)]="paymentData.name" required>
+            </mat-form-field>
+            <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+                <label>DNI</label>
+                <input matInput placeholder="" name="dni" [(ngModel)]="paymentData.dni" required>
+            </mat-form-field>
+            <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+                <label>Número de teléfono</label>
+                <input matInput placeholder="" name="phone_number" [(ngModel)]="paymentData.phoneNumber" required>
+            </mat-form-field>
+            <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+                <label>Correo Electrónico</label>
+                <input matInput placeholder="" name="email" [(ngModel)]="paymentData.email" required email>
+            </mat-form-field>
+            <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+                <label>Monto</label>
+                <input matInput placeholder="" name="amount" [(ngModel)]="paymentData.buyAmount" required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid">Pagar</button>
+        </form>
+    </div>
+</div>

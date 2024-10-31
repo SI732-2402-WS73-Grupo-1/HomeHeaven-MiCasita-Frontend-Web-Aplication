@@ -1,0 +1,211 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "phone": "123456789",
+      "address": "123 Main St"
+    },
+    {
+      "id": "2",
+      "name": "Jason Bourne",
+      "email": "jason@example.com",
+      "password": "securepass",
+      "phone": "987654321",
+      "address": "456 Elm St"
+    },
+    {
+      "id": "3",
+      "name": "William Norton",
+      "email": "william@example.com",
+      "password": "strongpassword",
+      "phone": "234567890",
+      "address": "789 Maple St"
+    },
+    {
+      "id": "4",
+      "name": "Jose",
+      "email": "hola@example.com",
+      "password": "1234",
+      "phone": "123456780",
+      "address": "123 Main St"
+    },
+    {
+      "id": "d658",
+      "name": "aasa",
+      "email": "qasa@sasa",
+      "password": "qqwq",
+      "phone": "123123",
+      "address": "sasa"
+    },
+    {
+      "id": "ce72",
+      "name": "asas",
+      "email": "sasa@sasa",
+      "password": "sasa",
+      "phone": "sasa",
+      "address": "sasa"
+    },
+    {
+      "id": "8508",
+      "name": "hola",
+      "email": "123@123",
+      "password": "123",
+      "phone": "123",
+      "address": "123"
+    },
+    {
+      "id": "f858",
+      "name": "assd",
+      "email": "sdas@dsads",
+      "password": "121312",
+      "phone": "1212",
+      "address": "1212"
+    },
+    {
+      "id": "01ff",
+      "name": "hola",
+      "email": "12121@212",
+      "password": "1212",
+      "phone": "1212",
+      "address": "1212aa"
+    },
+    {
+      "id": "501f",
+      "name": "hola",
+      "email": "1212@w121",
+      "password": "1212",
+      "phone": "121215",
+      "address": "121215"
+    },
+    {
+      "id": "czABPk0",
+      "name": "Juan",
+      "dni": "11111111",
+      "email": "prueba@gmail.com",
+      "password": "123456789",
+      "phone": "123456789",
+      "address": "Mihue"
+    },
+    {
+      "id": "-hQblHe",
+      "name": "Miguel",
+      "dni": "11111111",
+      "email": "mihuel@gmail.com",
+      "password": "123456789",
+      "phone": "999999999",
+      "address": "Av.la Marina 2810,San Miguel"
+    },
+    {
+      "id": "zbEvMGp",
+      "name": "miguel",
+      "dni": "11111111",
+      "email": "mihuel@gmail.com",
+      "password": "123456789",
+      "phone": "912222220",
+      "address": "Av.la Marina 2810,San Miguel"
+    },
+    {
+      "id": "4OUJNd_",
+      "name": "Juan",
+      "dni": "11111111",
+      "email": "juan@gmail.com",
+      "password": "123456789",
+      "phone": "987654321",
+      "address": "AV.MARIAN San Miguel"
+    },
+    {
+      "id": "LzJpUNt",
+      "name": "Juan",
+      "dni": "11111111",
+      "email": "juan1@gmail.com",
+      "password": "123456789",
+      "phone": "123456789",
+      "address": "Av.la Marina 2810,San Miguel"
+    },
+    {
+      "id": "82hi5WG",
+      "name": "Juan",
+      "dni": "11111111",
+      "email": "juan@gmail.com",
+      "password": "123456789",
+      "phone": "987654321",
+      "address": "AV.MARIAN San Miguel"
+    },
+    {
+      "id": "cF-PpP7",
+      "name": "User",
+      "dni": "11111111",
+      "email": "user@gmail.com",
+      "password": "useruser",
+      "phone": "1231313",
+      "address": "Av.la Marina 2810,San Miguel"
+    }
+  ],
+  "estates": [
+    {
+      "Id": 1,
+      "title": "Beautiful Estate",
+      "owner": "John Doe",
+      "status": "Available",
+      "location": "123 Main St, Springfield",
+      "yearBuilt": "2005",
+      "description": "A beautiful estate with modern amenities.",
+      "currency": "USD",
+      "price": "500000",
+      "type": "House",
+      "size": "250 m²",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "garageSpace": 2,
+      "image": {
+        "url": "https://example.com/image.jpg",
+        "description": "Front view of the estate"
+      }
+    }
+  ],
+  "user_payments": [
+    {
+      "id": "1",
+      "owner_name": "Juan Perez",
+      "dni": "12345678",
+      "phone_number": "+123456789",
+      "email": "juan@example.com",
+      "amount": "$100"
+    },
+    {
+      "id": "2",
+      "owner_name": "Maria Lopez",
+      "dni": "87654321",
+      "phone_number": "+987654321",
+      "email": "maria@example.com",
+      "amount": "$500"
+    },
+    {
+      "id": "3",
+      "owner_name": "Pedro Ramirez",
+      "dni": "23456789",
+      "phone_number": "+234567890",
+      "email": "pedro@example.com",
+      "amount": "$200"
+    },
+    {
+      "id": "4",
+      "owner_name": "Ana Torres",
+      "dni": "98765432",
+      "phone_number": "+987654321",
+      "email": "ana@example.com",
+      "amount": "$50"
+    },
+    {
+      "id": "ec8c",
+      "owner_name": "sadas",
+      "dni": 0,
+      "phone_number": "",
+      "email": "asd@sdada.com",
+      "amount": "0asddas"
+    }
+  ]
+}

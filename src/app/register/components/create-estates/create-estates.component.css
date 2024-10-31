@@ -1,0 +1,140 @@
+.create-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 700px;
+    margin: auto;
+}
+.create-estates-container{
+    display: flex;
+    justify-content: center;
+    border: none;
+    margin:20px;
+}
+.create-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family:  'Poppins', sans-serif;
+    font-weight: 500;
+    color: #34216b;
+    font-size: 1.8rem;
+}
+
+.create-card .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.create-card .input-group label {
+    margin-bottom: 10px;
+}
+
+.create-card .input-group input,
+.create-card .input-group select,
+.create-card .input-group textarea {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.create-card .input-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+.create-card .input-group .operation {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.create-card .input-group .price input {
+    text-indent: 20px;
+}
+.create-card button.next-button{
+    background-color: #d854a5;
+    color: white;
+    margin: 10px;
+}
+.create-card button.next-button:hover{
+    background-color: darkmagenta;
+}
+
+.create-card button.previous-button{
+    background-color: #673ab7;
+    color: white;
+    margin: 10px;
+}
+.create-card button.previous-button:hover{
+    background-color: #9252ff;
+}
+
+
+.create-card button.submit-button {
+    background-color: #d854a5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60%;
+    margin: 10px;
+}
+
+.create-card button.submit-button:hover {
+    background-color: darkmagenta;
+}
+
+.create-card button.submit-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.input-group {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.card-general {
+    border: 2px dashed #ccc;
+    transition: border-color 0.3s;
+}
+
+.card-general:hover {
+    border-color: #000;
+}
+
+.files-container_case-1,
+.files-container_case-2 {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-preview {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-preview-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.case-2_container-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 5px;
+    color: #777;
+}
+

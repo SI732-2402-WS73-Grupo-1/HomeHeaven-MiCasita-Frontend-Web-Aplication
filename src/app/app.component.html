@@ -1,0 +1,38 @@
+<!-- app.component.html -->
+<mat-toolbar class="mat-toolbar">
+    <div class="container">
+        <img src="https://i.imgur.com/sbTMmRn.png" alt="MiCasita" class="logo" (click)="navigateToEstates()">
+        <span class="mat-spacer"></span>
+        <div class="button-container" *ngIf="showButtons">
+            <mat-icon>home</mat-icon>
+            <button mat-raised-button color="primary" [routerLink]="['/estates']">Home</button>
+        </div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <div class="button-container" *ngIf="showButtons">
+                    <mat-icon>add</mat-icon>
+                    <button mat-raised-button color="primary" [routerLink]="['/estates/add']">Añadir propiedad</button>
+                </div>
+            </button>
+            <button mat-menu-item>
+                <div class="button-container" *ngIf="showButtons">
+                    <mat-icon>calendar_today</mat-icon>
+                    <button mat-raised-button color="primary" [routerLink]="['/calendar']">Reservar</button>
+                </div>
+            </button>
+            <button mat-menu-item>
+                <div class="button-container" *ngIf="showButtons">
+                    <mat-icon>account_circle</mat-icon>
+                    <button mat-raised-button color="warn" (click)="onLogout()">Cerrar sesión</button>
+                </div>
+            </button>
+
+        </mat-menu>
+
+    </div>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

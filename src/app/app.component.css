@@ -1,0 +1,23 @@
+.mat-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar{
+  background-color:#34216b;
+  color:#ffff;
+  margin-top:8px;
+  padding:20px;
+}
+.logo {
+  user-select: none;
+  -webkit-user-drag: none;
+  padding: 4px;
+  width: 150px;
+  height: auto;
+}
+.hover-effect:hover {
+  background-color: darkmagenta !important;
+}
+.button-container {
+  display: flex;
+  gap: 10px;
+}

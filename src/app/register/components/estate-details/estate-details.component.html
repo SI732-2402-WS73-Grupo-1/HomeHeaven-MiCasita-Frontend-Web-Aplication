@@ -1,0 +1,37 @@
+<div class="card-container" >
+    <mat-card *ngIf="estate" class="estate-card ">
+      <div class="header-container">
+        <mat-card-header class="estate-header">
+          <mat-card-title class="estate-title">{{ estate.title }}</mat-card-title>
+          <mat-card-subtitle class="estate-subtitle">{{ estate.description }}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <div class="body-container">
+        <div class="info-container">
+          <mat-card-content>
+            <p><strong>Owner:</strong> {{ estate.owner }}</p>
+            <p><strong>District:</strong> {{ estate.location }}</p>
+            <p><strong>Year: </strong> {{ estate.yearBuilt }}</p>
+            <p><strong>Status: </strong>{{ estate.status }}</p>
+              <p><strong>Price: </strong> {{ getCurrencySymbol(estate.currency) }} {{ estate.price }}</p>
+              <p><strong>Type:</strong> {{ estate.type }}</p>
+              <p><strong>Size:</strong> {{ estate.size }} </p>
+              <p><strong>Bedrooms:</strong> {{ estate.bedrooms }}</p>
+              <p><strong>Bathrooms:</strong> {{ estate.bathrooms }}</p>
+              <p><strong>Garages:</strong> {{ estate.garageSpace }}</p>
+          </mat-card-content>
+            <div class="button-container">
+                <mat-card-actions>
+                    <button mat-raised-button [routerLink]="['/estates/payment', estate.Id]">Comprar</button>
+                    <button id="back-button" mat-raised-button [routerLink]="['/estates']">Volver</button>
+                </mat-card-actions>
+            </div>
+
+        </div>
+        <div class="image-container">
+          <img mat-card-image [src]="estate.image?.url" alt="Estate Image">
+        </div>
+      </div>
+    </mat-card>
+</div>
+

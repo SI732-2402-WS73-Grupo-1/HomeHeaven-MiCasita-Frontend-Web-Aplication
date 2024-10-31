@@ -1,0 +1,45 @@
+<div class="parent">
+    <div class="container" [ngClass]="isRegisterMode ? 'active' : ''" id="container">
+        <!-- Formulario de registro -->
+        <div *ngIf="isRegisterMode" class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <span>or use your email for registration</span>
+                <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name" required>
+                <input type="text" name="dni" [(ngModel)]="user.dni" placeholder="DNI" required>
+                <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+                <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+                <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" required>
+                <input type="text" name="address" [(ngModel)]="user.address" placeholder="Address" required>
+                <button (click)="onRegister()" [disabled]="!user.name || !user.dni || !user.email || !user.password || !user.phone || !user.address">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Formulario de inicio de sesión -->
+        <div *ngIf="!isRegisterMode" class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <span>or use your email and password</span>
+                <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" required>
+                <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+                <a href="#">→ Forget Your Password? ←</a>
+                <button (click)="onLogin()" [disabled]="!user.phone || !user.password">Sign In</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Hello, Friend!</h1>
+                    <p>If you have an account, find your property before it is taken</p>
+                    <button type="button" class="hidden" id="login" (click)="isRegisterMode = false">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Welcome to MiCasita!</h1>
+                    <p>Register with your personal details to sell or find your perfect home or for college</p>
+                    <button type="button" class="hidden" id="register" (click)="isRegisterMode = true">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

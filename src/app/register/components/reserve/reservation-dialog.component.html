@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Reservar Cita</h1>
+<div mat-dialog-content>
+    <p>Fecha seleccionada: {{data.date}}</p>
+    <mat-form-field>
+        <mat-select placeholder="Seleccionar propiedad" [(value)]="selectedEstate">
+            <mat-option *ngFor="let estate of estates" [value]="estate">
+                {{ estate.title }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button (click)="onReserve()" [disabled]="!selectedEstate">Reservar</button>
+</div>

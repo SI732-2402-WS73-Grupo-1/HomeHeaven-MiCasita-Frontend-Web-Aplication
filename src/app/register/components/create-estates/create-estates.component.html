@@ -1,0 +1,183 @@
+<div class="create-estates-container">
+        <div class="create-card">
+            <h1>Añadir Propiedad</h1>
+            <!--[linear]=true-->
+            <mat-stepper orientation="vertical" [linear]=true #stepper>
+                <mat-step [stepControl]="personalDataForm">
+                    <form [formGroup]="personalDataForm">
+                        <ng-template matStepLabel>Datos personales</ng-template>
+                        <div class="input-group">
+                            <label>Nombre completo del propietario</label>
+                            <mat-form-field appearance="outline">
+                                <input formControlName="owner" matInput placeholder="John doe" required>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-button matStepperNext class="next-button">Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="OperationTypeForm">
+                    <form [formGroup]="OperationTypeForm">
+                        <ng-template matStepLabel>Operación y tipo de inmueble</ng-template>
+                        <div class="input-group operation">
+                            <label>Tipo de operación</label>
+                            <mat-radio-group formControlName="status" aria-label="Select an option">
+                                <mat-radio-button id="venta" value="Sale" required>Venta</mat-radio-button>
+                                <mat-radio-button id="alquiler" value="Rent" required>Alquiler</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-error *ngIf="OperationTypeForm.get('status')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
+                        </div>
+                        <div class="input-group">
+                            <label>Tipo de Inmueble</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Selecciona el tipo de inmueble</mat-label>
+                                <mat-select formControlName="type" required>
+                                    <mat-option value="Apartment" >Departamento</mat-option>
+                                    <mat-option value="House">Casa</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious class="previous-button">Anterior</button>
+                            <button mat-button matStepperNext class="next-button">Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="locationForm">
+                    <form [formGroup]="locationForm">
+                        <ng-template matStepLabel>Ubicación</ng-template>
+                        <div class="input-group">
+                            <label>Donde está ubicado tu inmueble?</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Distrito</mat-label>
+                                <mat-select formControlName="location" required>
+                                    <mat-option value="Miraflores" >Miraflores</mat-option>
+                                    <mat-option value="San Isidro">San Isidro</mat-option>
+                                    <mat-option value="Barranco">Barranco</mat-option>
+                                    <mat-option value="Santiago de Surco">Santiago de Surco</mat-option>
+                                    <mat-option value="San Miguel">San Miguel</mat-option>
+                                    <mat-option value="Magdalena">Magdalena</mat-option>
+                                    <mat-option value="Lince">Lince</mat-option>
+                                    <mat-option value="Cercado de Lima">Cercado de Lima</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div>
+                            <button mat-button matStepperPrevious class="previous-button">Anterior</button>
+                            <button mat-button matStepperNext class="next-button">Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="featuresForm">
+                    <form [formGroup]="featuresForm" (ngSubmit)="onSubmit()">
+                        <ng-template matStepLabel>Caracteristicas</ng-template>
+                        <div class="input-group">
+                            <label>Año de estreno</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Año</mat-label>
+                                <mat-select formControlName="yearBuilt" required>
+                                    <mat-option *ngFor="let yearBuilt of years" [value]="yearBuilt">{{yearBuilt}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="input-group price">
+                            <label>Tipo de moneda</label>
+                            <mat-radio-group formControlName="currency">
+                                <mat-radio-button id="usd" name="currency" value="Dolar" required>Dólares</mat-radio-button>
+                                <mat-radio-button id="sol" name="currency" value="Sol" required>Soles</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-error *ngIf="featuresForm.get('currency')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
+
+                            <mat-form-field appearance="outline">
+                                <mat-label>Precio</mat-label>
+                                <input matInput placeholder="" formControlName="price" type="number" required>
+                            </mat-form-field>
+
+
+                        </div>
+                        <div class="input-group">
+                            <label>Agrega imagenes de tu propiedad</label>
+                            <mat-card class="card-general card-files">
+                                <mat-card-content>
+                                    <div class="card-subcontainer subcontainer-5">
+                                        @if (!imageSrc){
+                                            <div class="files-container_case-1" >
+                                                <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+                                                <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add image</button>
+                                                <p>Accept only images</p>
+                                            </div>
+                                        }
+                                        @else if (imageSrc){
+                                            <div class="files-container_case-2">
+                                                <div class="image-preview">
+                                                    <img [src]="imageSrc" alt="Preview">
+                                                </div>
+                                                <div class="case-2_container-add">
+                                                    <input type="file" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
+                                                    <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput2')">Change image</button>
+                                                    <p>Accept only images</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="input-group">
+                            <label>Tamaño en m²</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="size" type="number" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group">
+                            <label>Dormitorios</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="bedrooms" type="number" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group">
+                            <label>Baños</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="bathrooms" type="number" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group">
+                            <label>Garajes</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="garageSpace" type="number" required>
+                            </mat-form-field>
+                        </div>
+                        <h2>Describe el inmueble</h2>
+                        <h4>Asegúrate de incluir el tipo de inmueble y el tipo de operación en tu aviso</h4>
+                        <div class="input-group">
+                            <label>Título</label>
+                            <mat-form-field appearance="outline">
+                                <input formControlName="title" matInput placeholder="Propiedad frente al mar" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="input-group">
+                            <label>Descripción</label>
+                            <mat-form-field appearance="outline">
+                                <textarea matInput placeholder="" formControlName="description" maxlength="250" required></textarea>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <button mat-button matStepperPrevious class="previous-button">Anterior</button>
+                            <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !OperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>                        </div>
+
+                    </form>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>

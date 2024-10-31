@@ -1,0 +1,71 @@
+.payment-method-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-method-title {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 200%;
+}
+
+.main-title{
+  margin-top: 2rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 250%;
+  text-align: center;
+}
+.payment-method-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+.imagen-check{
+  width: 20%;
+}
+.subtotal-box{
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 150%;
+}
+.total-box{
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 150%;
+}
+.subtotal-box,.total-box{
+  text-align: center;
+}
+button[type="submit"] {
+  width: auto;
+  background-color: #d854a5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  align-items: center;
+}
+
+button[type="submit"]:hover {
+  background-color: darkmagenta;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  color: #666;
+}

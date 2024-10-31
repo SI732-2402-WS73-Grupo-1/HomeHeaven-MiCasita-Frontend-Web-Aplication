@@ -1,0 +1,28 @@
+<div class="card-container">
+    <div class="filter-container">
+        <mat-card-actions class="button-filter">
+            <span class="filter-option" [ngClass]="{'selected': selectedFilter === 'Sale'}" (click)="filterEstates('Sale')">Buy</span>
+            <span class="filter-option" [ngClass]="{'selected': selectedFilter === 'Rent'}" (click)="filterEstates('Rent')">Rent</span>
+        </mat-card-actions>
+    </div>
+    <div class="line"></div>
+    <div class="container">
+        <div class="cards-wrapper">
+            <mat-card *ngFor="let estate of filteredEstates" class="estate-card">
+                <img mat-card-image [src]="estate.image?.url" alt="Estate Image">
+                <mat-card-header class="estate-header">
+                    <div mat-card-avatar class="card-avatar"></div>
+                    <mat-card-title>{{ estate.title }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ estate.description }}</p>
+                    <p><strong>District:</strong> {{ estate.location }}</p>
+                    <p><strong>For</strong> {{ estate.status }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button [routerLink]="['/estate', estate.Id]">View Details</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+  </div>
