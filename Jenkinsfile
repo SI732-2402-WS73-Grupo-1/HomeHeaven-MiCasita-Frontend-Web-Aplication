@@ -1,13 +1,13 @@
 pipeline {
     agent any
 
-    tools {
+/*    tools {
         maven 'MAVEN_3_6_3'
         jdk 'JDK_1_11'
     }
 
-
-    /*stages {
+*/
+    stages {
         stage('Install Dependencies') {
             steps {
                 script {
@@ -15,7 +15,7 @@ pipeline {
                 }
             }
         }
-
+/*
         stage('Build') {
             steps {
                 script {
@@ -51,5 +51,6 @@ pipeline {
                 }
             }
         }
-    }*/
+        */
+    }
 }
