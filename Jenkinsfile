@@ -31,7 +31,7 @@ pipeline {
                     sh 'npm test'
                 }
             }
-        }*/
+        }
 
         stage('Package') {
             steps {
@@ -42,7 +42,7 @@ pipeline {
             }
         }
 
-       /* stage('Deploy') {
+        stage('Deploy') {
             steps {
                 script {
                     // Deploy to Firebase
