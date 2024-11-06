@@ -6,11 +6,6 @@ pipeline {
         jdk 'JDK_21'
     }
 
-    environment {
-        JAVA_HOME = 'C:/ELVIA' // Set this to your Java 11 installation path
-        PATH = "${env.JAVA_HOME}\\bin:${env.PATH}"
-        FIREBASE_TOKEN = credentials('firebase-token') // Ensure the credential ID is 'firebase-token'
-    }
 
     stages {
         stage('Install Dependencies') {
