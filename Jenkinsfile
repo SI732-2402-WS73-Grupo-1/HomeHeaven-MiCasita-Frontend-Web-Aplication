@@ -50,6 +50,6 @@ pipeline {
                     sh 'firebase deploy --token $1//0hHZlEfzYbDOYCgYIARAAGBESNwF-L9Irk-uk_82ufwmw4qWDM68eOaj219IM_IxAHGE9FVLvsf0yVr5j-AGOR0QtYXbp93r9kZg' 
                 }
             }
-        }*/
-    }
+        }
+    }*/
 }
