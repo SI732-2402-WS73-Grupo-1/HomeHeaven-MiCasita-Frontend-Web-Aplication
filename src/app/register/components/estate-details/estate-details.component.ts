@@ -14,7 +14,7 @@ import { Estate } from "../../model/estate-entity/estate.entity";
 import { EstatesService } from '../../services/estates-service/estates.service';
 import {EstatesImageService} from "../../services/estates-service/estates-image.service";
 import {EstateImg} from "../../model/estate-img-entity/estate-img.entity";
-
+const defaultId = 1;
 
 @Component({
   selector: 'app-estate-details',
@@ -57,9 +57,9 @@ export class EstateDetailsComponent implements OnInit{
 
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = defaultId;
     if (id && !isNaN(Number(id))) {
-      const numericId = Number(id);
+      const numericId = defaultId;
       this.estatesService.getEstateById(numericId).subscribe({
         next: data => {
           this.estate = data;

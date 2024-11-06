@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-11' // Set this to your Java 11 installation path
+        JAVA_HOME = 'C:/ELVIA' // Set this to your Java 11 installation path
         PATH = "${env.JAVA_HOME}\\bin:${env.PATH}"
         FIREBASE_TOKEN = credentials('firebase-token') // Ensure the credential ID is 'firebase-token'
     }
@@ -16,7 +16,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    // Install Node.js dependencies
                     sh 'npm install'
                 }
             }
@@ -25,7 +24,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Build the Angular project
                     sh 'npm run build'
                 }
             }
